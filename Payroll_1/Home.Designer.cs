@@ -1,6 +1,6 @@
 ﻿namespace Payroll_1
 {
-    partial class Form1
+    partial class Home
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            btnDeducciones = new Button();
+            SuspendLayout();
+            // 
+            // btnDeducciones
+            // 
+            btnDeducciones.Location = new Point(349, 331);
+            btnDeducciones.Name = "btnDeducciones";
+            btnDeducciones.Size = new Size(75, 23);
+            btnDeducciones.TabIndex = 0;
+            btnDeducciones.Text = "Deducciones";
+            btnDeducciones.UseVisualStyleBackColor = true;
+            btnDeducciones.Click += btnDeducciones_Click;
+            // 
+            // Home
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnDeducciones);
+            Name = "Home";
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnDeducciones;
     }
 }
