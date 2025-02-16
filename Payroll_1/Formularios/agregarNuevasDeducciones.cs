@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Payroll_1.Formularios
 {
-    public partial class agregarDeducciones : Form
+    public partial class agregarNuevasDeducciones : Form
     {
-        public agregarDeducciones()
+        public agregarNuevasDeducciones()
         {
             InitializeComponent();
         }
@@ -94,6 +94,13 @@ namespace Payroll_1.Formularios
                 txtNombre.Text = row.Cells["NombreDeduccion"].Value.ToString();
                 txtPorcentajee.Text = row.Cells["Porcentaje"].Value.ToString();
             }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Home frm = new Home();
+            frm.Show();
+            this.Hide();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Payroll_1.Modelos
         public int IdPuesto { get; set; }
 
         // Relación con Empleado y Puesto
-        public Empleado Empleado { get; set; }
-        public Puesto Puesto { get; set; }
+        //public Empleado Empleado { get; set; }
+        //public Puesto Puesto { get; set; }
     }
 }
