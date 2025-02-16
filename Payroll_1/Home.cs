@@ -11,8 +11,15 @@ namespace Payroll_1
 
         private void btnDeducciones_Click(object sender, EventArgs e)
         {
-            agregarDeducciones frm = new agregarDeducciones();
-            frm.ShowDialog();
+            agregarNuevasDeducciones frm = new agregarNuevasDeducciones();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnAsignarDeducciones_Click(object sender, EventArgs e)
+        {
+            asignarDeduccionesEmpleado frm = new asignarDeduccionesEmpleado();
+            frm.Show();
             this.Hide();
         }
     }

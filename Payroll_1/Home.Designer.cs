@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             btnDeducciones = new Button();
+            btnAsignarDeducciones = new Button();
             SuspendLayout();
             // 
             // btnDeducciones
@@ -41,11 +42,22 @@
             btnDeducciones.UseVisualStyleBackColor = true;
             btnDeducciones.Click += btnDeducciones_Click;
             // 
+            // btnAsignarDeducciones
+            // 
+            btnAsignarDeducciones.Location = new Point(349, 288);
+            btnAsignarDeducciones.Name = "btnAsignarDeducciones";
+            btnAsignarDeducciones.Size = new Size(126, 23);
+            btnAsignarDeducciones.TabIndex = 1;
+            btnAsignarDeducciones.Text = "AsignarDeducciones";
+            btnAsignarDeducciones.UseVisualStyleBackColor = true;
+            btnAsignarDeducciones.Click += btnAsignarDeducciones_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnAsignarDeducciones);
             Controls.Add(btnDeducciones);
             Name = "Home";
             Text = "Form1";
@@ -55,5 +67,6 @@
         #endregion
 
         private Button btnDeducciones;
+        private Button btnAsignarDeducciones;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Payroll_1.Formularios
 {
-    partial class agregarDeducciones
+    partial class agregarNuevasDeducciones
     {
         /// <summary>
         /// Required designer variable.
@@ -36,6 +36,7 @@
             btnEliminar = new Button();
             btnEditar = new Button();
             txtPorcentajee = new TextBox();
+            btnRegresar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDeducciones).BeginInit();
             SuspendLayout();
             // 
@@ -112,11 +113,21 @@
             txtPorcentajee.Size = new Size(154, 23);
             txtPorcentajee.TabIndex = 8;
             // 
-            // agregarDeducciones
+            // btnRegresar
+            // 
+            btnRegresar.Location = new Point(0, 0);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(75, 23);
+            btnRegresar.TabIndex = 0;
+            btnRegresar.Text = "regresar";
+            btnRegresar.Click += btnRegresar_Click;
+            // 
+            // agregarNuevasDeducciones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnRegresar);
             Controls.Add(txtPorcentajee);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
@@ -125,7 +136,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvDeducciones);
-            Name = "agregarDeducciones";
+            Name = "agregarNuevasDeducciones";
             Text = "agregarDeducciones";
             Load += agregarDeducciones_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDeducciones).EndInit();
@@ -143,5 +154,6 @@
         private Button btnEliminar;
         private Button btnEditar;
         private TextBox txtPorcentajee;
+        private Button btnRegresar;
     }
 }

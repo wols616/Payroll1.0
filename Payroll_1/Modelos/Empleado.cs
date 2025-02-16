@@ -15,5 +15,26 @@ namespace Payroll_1.Modelos
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public string CuentaCorriente { get; set; }
+
+        public Empleado(int idEmpleado, string dui, string nombre, string apellidos, string telefono, string direccion, string cuentaCorriente)
+        {
+            IdEmpleado = idEmpleado;
+            Dui = dui;
+            Nombre = nombre;
+            Apellidos = apellidos;
+            Telefono = telefono;
+            Direccion = direccion;
+            CuentaCorriente = cuentaCorriente;
+        }
+        public Empleado() { }
+        public Empleado(string dui, string nombre, string apellidos, string telefono, string direccion, string cuentaCorriente)
+        {
+            Dui = dui;
+            Nombre = nombre;
+            Apellidos = apellidos;
+            Telefono = telefono;
+            Direccion = direccion;
+            CuentaCorriente = cuentaCorriente;
+        }
     }
 }
