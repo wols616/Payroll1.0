@@ -12,9 +12,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Payroll_1.Formularios
 {
-    public partial class asignarDeduccionesEmpleado : Form
+    public partial class generarNomina : Form
     {
-        public asignarDeduccionesEmpleado()
+        decimal sueldoB = 400;
+        decimal totalDeducciones = 0;
+        decimal sueldoNetro = 0;
+        public generarNomina()
         {
             InitializeComponent();
         }
@@ -28,6 +31,8 @@ namespace Payroll_1.Formularios
             empleados.Add(empleado1);
             empleados.Add(empleado2);
             empleados.Add(empleado3);
+            
+
             //-----------------------------------------------------------------------------------------------------------------------------------
             dgvEmpleados.DataSource = empleados;
         }
@@ -40,11 +45,55 @@ namespace Payroll_1.Formularios
             cbxDeducciones.ValueMember = "IdDeduccion";
         }
 
+        private void calcularTotales(List<Deduccion> dp)
+        {
+            totalDeducciones = 0;
+            txtSueldoBase.Text = "Sueldo Base: " + this.sueldoB;
+
+            foreach (var deduccion in dp)
+            {
+                deduccion.Monto = (deduccion.Porcentaje / 100) * sueldoB;
+            }
+
+            foreach (var deduccion in dp)
+            {
+                totalDeducciones += deduccion.Monto;
+            }
+            sueldoNetro = sueldoB - totalDeducciones;
+            txtTotalDeducciones.Text = "Total: " + Math.Round(totalDeducciones, 2);
+            txtSalarioNeto.Text = "Sueldo Neto: " + Math.Round((sueldoNetro), 2);
+        }
+
+        private decimal obtenerTotalDeducciones(List<Deduccion> dp)
+        {
+            totalDeducciones = 0;
+            //txtSueldoBase.Text = "Sueldo Base: " + this.sueldoB;
+
+            foreach (var deduccion in dp)
+            {
+                deduccion.Monto = (deduccion.Porcentaje / 100) * sueldoB;
+            }
+
+            foreach (var deduccion in dp)
+            {
+                totalDeducciones += deduccion.Monto;
+            }
+            return totalDeducciones;
+        }
+
         private void cargarTablaDeducciones(int idEmpleado)
         {
+            
             List<Deduccion> deduccionesPersonales = Deduccion_Personal.ObtenerDeduccionesPersonales(idEmpleado);
+
+            dgvDeducciones.DataSource = null;
             dgvDeducciones.DataSource = deduccionesPersonales;
             dgvDeducciones.Columns["IdDeduccion"].Visible = false;
+            dgvDeducciones.Columns["Monto"].DefaultCellStyle.Format = "C2";
+            dgvDeducciones.Columns["Porcentaje"].DefaultCellStyle.Format = "0.##'%'";
+
+            calcularTotales(deduccionesPersonales);
+
             desactivarSeleccionTDeduccion();
 
         }
@@ -108,6 +157,7 @@ namespace Payroll_1.Formularios
 
         private void btnAsignar_Click(object sender, EventArgs e)
         {
+
             Deduccion deduccion = (Deduccion)cbxDeducciones.SelectedItem;
             if (dgvEmpleados.CurrentRow != null)
             {
@@ -115,6 +165,16 @@ namespace Payroll_1.Formularios
                 DataGridViewRow row = dgvEmpleados.CurrentRow;
 
                 int idEmpleado = Convert.ToInt32(row.Cells["IdEmpleado"].Value);
+
+                List<Deduccion> deduccionsPersonales = Deduccion_Personal.ObtenerDeduccionesPersonales(Int32.Parse(row.Cells["IdEmpleado"].Value.ToString()));
+                
+                decimal totalDeducciones = obtenerTotalDeducciones(deduccionsPersonales) + ((deduccion.Porcentaje / 100) * sueldoB);
+
+                if (totalDeducciones >= sueldoB)
+                {
+                    MessageBox.Show("No puedes asignar esta deducción porque supera o iguala el sueldo base.");
+                    return;
+                }
 
                 if (this.btnAsignar.Text == "Asignar")
                 {
@@ -137,6 +197,11 @@ namespace Payroll_1.Formularios
             Home frm = new Home();
             frm.Show();
             this.Hide();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

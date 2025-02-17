@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Payroll_1.Formularios
 {
@@ -101,6 +102,47 @@ namespace Payroll_1.Formularios
             Home frm = new Home();
             frm.Show();
             this.Hide();
+        }
+
+        private void txtPorcentajee_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void agregarNuevasDeducciones_MouseClick(object sender, MouseEventArgs e)
+        {
+            dgvDeducciones.ClearSelection();
+            this.txtNombre.Text = "";
+            this.txtPorcentajee.Text = "";
+        }
+
+        private void txtPorcentajee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números, el punto decimal y el signo de porcentaje
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // Evitar más de un punto decimal
+            if (e.KeyChar == '.' && txtPorcentajee.Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+
+            // Validar que el valor no sea mayor a 100
+            if (!string.IsNullOrEmpty(txtPorcentajee.Text) && txtPorcentajee.Text != ".")
+            {
+                // Intentar convertir a decimal para evitar errores
+                if (decimal.TryParse(txtPorcentajee.Text + e.KeyChar, out decimal valor))
+                {
+                    if (valor >= 100)
+                    {
+                        MessageBox.Show("No se permite un valor mayor o igual a 100%.");
+                        e.Handled = true; // Evita que el número sea ingresado
+                    }
+                }
+            }
         }
     }
 }
