@@ -36,9 +36,9 @@
             // 
             btnDeducciones.Location = new Point(349, 331);
             btnDeducciones.Name = "btnDeducciones";
-            btnDeducciones.Size = new Size(75, 23);
+            btnDeducciones.Size = new Size(147, 23);
             btnDeducciones.TabIndex = 0;
-            btnDeducciones.Text = "Deducciones";
+            btnDeducciones.Text = "Agregar Deducciones";
             btnDeducciones.UseVisualStyleBackColor = true;
             btnDeducciones.Click += btnDeducciones_Click;
             // 
@@ -46,9 +46,9 @@
             // 
             btnAsignarDeducciones.Location = new Point(349, 288);
             btnAsignarDeducciones.Name = "btnAsignarDeducciones";
-            btnAsignarDeducciones.Size = new Size(126, 23);
+            btnAsignarDeducciones.Size = new Size(147, 23);
             btnAsignarDeducciones.TabIndex = 1;
-            btnAsignarDeducciones.Text = "AsignarDeducciones";
+            btnAsignarDeducciones.Text = "Nomina";
             btnAsignarDeducciones.UseVisualStyleBackColor = true;
             btnAsignarDeducciones.Click += btnAsignarDeducciones_Click;
             // 

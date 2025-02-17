@@ -12,7 +12,7 @@ namespace Payroll_1.Modelos
         public int IdDeduccion { get; set; }
         public string NombreDeduccion { get; set; }
         public decimal Porcentaje { get; set; }
-
+        public decimal Monto { get; set; }
         public Deduccion(string nombreDeduccion, decimal porcentaje)
         {
             this.NombreDeduccion = nombreDeduccion;

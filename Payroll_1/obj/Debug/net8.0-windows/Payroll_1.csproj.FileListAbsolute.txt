@@ -70,4 +70,4 @@ C:\Users\wilber\source\repos\Payroll_1\Payroll_1\obj\Debug\net8.0-windows\Payrol
 C:\Users\wilber\source\repos\Payroll_1\Payroll_1\obj\Debug\net8.0-windows\ref\Payroll_1.dll
 C:\Users\wilber\source\repos\Payroll_1\Payroll_1\obj\Debug\net8.0-windows\Payroll_1.Home.resources
 C:\Users\wilber\source\repos\Payroll_1\Payroll_1\obj\Debug\net8.0-windows\Payroll_1.Formularios.agregarNuevasDeducciones.resources
-C:\Users\wilber\source\repos\Payroll_1\Payroll_1\obj\Debug\net8.0-windows\Payroll_1.Formularios.asignarDeduccionesEmpleado.resources
+C:\Users\wilber\source\repos\Payroll_1\Payroll_1\obj\Debug\net8.0-windows\Payroll_1.Formularios.generarNomina.resources

@@ -112,6 +112,8 @@
             txtPorcentajee.Name = "txtPorcentajee";
             txtPorcentajee.Size = new Size(154, 23);
             txtPorcentajee.TabIndex = 8;
+            txtPorcentajee.TextChanged += txtPorcentajee_TextChanged;
+            txtPorcentajee.KeyPress += txtPorcentajee_KeyPress;
             // 
             // btnRegresar
             // 
@@ -139,6 +141,7 @@
             Name = "agregarNuevasDeducciones";
             Text = "agregarDeducciones";
             Load += agregarDeducciones_Load;
+            MouseClick += agregarNuevasDeducciones_MouseClick;
             ((System.ComponentModel.ISupportInitialize)dgvDeducciones).EndInit();
             ResumeLayout(false);
             PerformLayout();
