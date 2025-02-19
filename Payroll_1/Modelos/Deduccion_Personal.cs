@@ -218,12 +218,12 @@ namespace Payroll_1.Modelos
 
             return exito;
         }
-        public static bool EliminarDeduccionPersonal(int idDeduccion)
+        public static bool EliminarDeduccionPersonal(int idDeduccion, int idEmpleado)
         {
             bool exito = false;
 
             // Consulta SQL para eliminar una deducción por su Id
-            string query = "DELETE FROM Deduccion_Personal WHERE id_deduccion = @IdDeduccion";
+            string query = "DELETE FROM Deduccion_Personal WHERE id_deduccion = @IdDeduccion AND id_empleado = @IdEmpleado";
 
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.GetConnection())
@@ -237,6 +237,8 @@ namespace Payroll_1.Modelos
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@IdDeduccion", idDeduccion);
+                        command.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+
 
                         // Ejecutar la consulta
                         int rowsAffected = command.ExecuteNonQuery();
