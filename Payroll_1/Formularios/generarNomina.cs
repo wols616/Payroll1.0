@@ -31,7 +31,7 @@ namespace Payroll_1.Formularios
             empleados.Add(empleado1);
             empleados.Add(empleado2);
             empleados.Add(empleado3);
-            
+
 
             //-----------------------------------------------------------------------------------------------------------------------------------
             dgvEmpleados.DataSource = empleados;
@@ -83,7 +83,7 @@ namespace Payroll_1.Formularios
 
         private void cargarTablaDeducciones(int idEmpleado)
         {
-            
+
             List<Deduccion> deduccionesPersonales = Deduccion_Personal.ObtenerDeduccionesPersonales(idEmpleado);
 
             dgvDeducciones.DataSource = null;
@@ -167,7 +167,7 @@ namespace Payroll_1.Formularios
                 int idEmpleado = Convert.ToInt32(row.Cells["IdEmpleado"].Value);
 
                 List<Deduccion> deduccionsPersonales = Deduccion_Personal.ObtenerDeduccionesPersonales(Int32.Parse(row.Cells["IdEmpleado"].Value.ToString()));
-                
+
                 decimal totalDeducciones = obtenerTotalDeducciones(deduccionsPersonales) + ((deduccion.Porcentaje / 100) * sueldoB);
 
                 if (totalDeducciones >= sueldoB)
@@ -183,7 +183,7 @@ namespace Payroll_1.Formularios
                 }
                 else if (this.btnAsignar.Text == "Exento")
                 {
-                    Deduccion_Personal.EliminarDeduccionPersonal(deduccion.IdDeduccion);
+                    Deduccion_Personal.EliminarDeduccionPersonal(deduccion.IdDeduccion, idEmpleado);
                 }
 
                 cargarTablaDeducciones(idEmpleado);
@@ -201,6 +201,12 @@ namespace Payroll_1.Formularios
 
         private void label4_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void dgvEmpleados_MouseClick(object sender, MouseEventArgs e)
+        {
+            cambiarBoton();
 
         }
     }

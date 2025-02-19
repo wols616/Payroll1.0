@@ -57,6 +57,7 @@
             dgvEmpleados.Size = new Size(633, 150);
             dgvEmpleados.TabIndex = 0;
             dgvEmpleados.SelectionChanged += dgvEmpleados_SelectionChanged;
+            dgvEmpleados.MouseClick += dgvEmpleados_MouseClick;
             // 
             // dgvDeducciones
             // 

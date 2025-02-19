@@ -25,6 +25,7 @@ namespace Payroll_1.Formularios
             List<Deduccion> deducciones = Deduccion.ObtenerDeducciones();
             dgvDeducciones.DataSource = deducciones;
             dgvDeducciones.Columns["IdDeduccion"].Visible = false;
+            dgvDeducciones.Columns["Monto"].Visible = false;
         }
         private void agregarDeducciones_Load(object sender, EventArgs e)
         {
